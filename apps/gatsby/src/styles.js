@@ -14,22 +14,6 @@ export default {
     boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.1)',
     borderRadius: '2px'
   }),
-  background: css({
-    display: 'block',
-    position: 'absolute',
-    zIndex: '-1',
-    top: '0',
-    width: '100%',
-    height: '300px',
-    backgroundColor: 'rgb(23,64,121)',
-    background: 'linear-gradient(90deg, rgba(23,64,121,1) 0%, rgba(27,158,156,1) 100%)'
-  }),
-  section: css({
-    margin: `${tokens.spacingXl} 0`
-  }),
-  input: css({
-    marginTop: tokens.spacingM
-  }),
   splitter: css({
     marginTop: tokens.spacingL,
     marginBottom: tokens.spacingL,
@@ -37,30 +21,29 @@ export default {
     height: '1px',
     backgroundColor: tokens.colorElementMid
   }),
+  background: css({
+    display: 'block',
+    position: 'absolute',
+    zIndex: '-1',
+    top: '0',
+    width: '100%',
+    height: '300px',
+    backgroundColor: '#452475',
+    backgroundImage:
+      'linear-gradient(45deg,#542c85 25%,transparent 25%,transparent 50%,#542c85 50%,#542c85 75%,transparent 75%,transparent)'
+  }),
+  input: css({
+    marginTop: tokens.spacingM
+  }),
   icon: css({
     display: 'flex',
     justifyContent: 'center',
-    marginTop: tokens.spacingXl,
-    marginBottom: tokens.spacingXl
+    margin: `${tokens.spacingXl} 0`
   }),
   checks: css({
-    marginTop: tokens.spacingM,
-    display: 'flex'
+    marginTop: tokens.spacingM
   }),
   pills: css({
     margin: `0 ${tokens.spacingXs}`
-  }),
-  relative: css({
-    position: 'relative'
-  }),
-  configurationProtector: css({
-    zIndex: 9999,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    pointerEvents: 'none',
-    backgroundColor: 'rgba(255, 255, 255, 0.60)',
-    position: 'absolute'
   })
 };
