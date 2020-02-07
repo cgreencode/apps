@@ -28,10 +28,11 @@ provider:
 package:
   include:
     - built/**
+    - static/**
   exclude:
     - .git/**
     - "**/*.ts"
-    - node_modules/smartling-frontend/node_modules/**
+    - node_modules/smartling-frontend/**
 
 functions:
   app:

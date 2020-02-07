@@ -87,7 +87,7 @@ export default class Analytics extends React.Component<AnalyticsProps, Analytics
             this.setState({ loading: false });
           }}
           onQuery={() => this.setState({ loading: true })}
-          onError={() => gapi.analytics.auth.signOut()}
+          onError={() => this.setState({ loading: false })}
           pagePath={pagePath}
           start={start}
           end={end}
