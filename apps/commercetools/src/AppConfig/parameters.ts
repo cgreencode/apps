@@ -34,8 +34,8 @@ export function toAppParameters(
 export const parameterDefinitions = [
   {
     id: "projectKey",
-    name: "commercetools Project Key",
-    description: "The commercetools project key",
+    name: "Commercetools Project Key",
+    description: "The Commercetools project key",
     type: "Symbol",
     required: true
   },
@@ -56,7 +56,7 @@ export const parameterDefinitions = [
   {
     id: "apiEndpoint",
     name: "API Endpoint",
-    description: "The commercetools API endpoint",
+    description: "The Commercetools API endpoint",
     type: "Symbol",
     required: true
   },
@@ -69,8 +69,8 @@ export const parameterDefinitions = [
   },
   {
     id: "locale",
-    name: "commercetools data locale",
-    description: "The commercetools data locale to display",
+    name: "Commercetools data locale",
+    description: "The Commercetools data locale to display",
     type: "Symbol",
     required: true
   }
@@ -80,27 +80,27 @@ export function validateParameters(
   parameters: ConfigurationParameters
 ): string | null {
   if (get(parameters, ["projectKey"], "").length < 1) {
-    return "Provide your commercetools project key.";
+    return "Provide your Commercetools project key.";
   }
 
   if (get(parameters, ["clientId"], "").length < 1) {
-    return "Provide your commercetools client ID.";
+    return "Provide your Commercetools client ID.";
   }
 
   if (get(parameters, ["clientSecret"], "").length < 1) {
-    return "Provide your commercetools client secret.";
+    return "Provide your Commercetools client secret.";
   }
 
   if (get(parameters, ["apiEndpoint"], "").length < 1) {
-    return "Provide the commercetools API endpoint.";
+    return "Provide the Commercetools API endpoint.";
   }
 
   if (get(parameters, ["authApiEndpoint"], "").length < 1) {
-    return "Provide the commercetools auth API endpoint.";
+    return "Provide the Commercetools auth API endpoint.";
   }
 
   if (get(parameters, ["locale"], "").length < 1) {
-    return "Provide the commercetools data locale.";
+    return "Provide the Commercetools data locale.";
   }
 
   return null;

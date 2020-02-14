@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CheckboxField, TextInput, Pill, Button, Note } from '@contentful/forma-36-react-components';
+import { CheckboxField, TextInput, Pill, Button } from '@contentful/forma-36-react-components';
 import get from 'lodash.get';
 
 import { styles } from './styles';
@@ -28,36 +28,16 @@ export class AITagView extends React.Component {
       tags: props.entries.imageTags.getValue() || [],
       overwrite: true,
       isMissingImage: !props.entries.image.getValue(),
-      unsupportedImageType: false,
       isFetchingTags: false
     }
-
-    this.validateImage();
   }
 
   componentDidMount() {
     this.props.entries.image.onValueChanged(() => {
       this.setState(() => ({
         isMissingImage: !this.props.entries.image.getValue()
-      }));
-      // always validate the image
-      this.validateImage();
+      }))
     });
-  }
-
-  validateImage = async () => {
-    const imageId = get(this.props.entries.image.getValue(), 'sys.id');
-    if (!imageId) { return true; }
-
-    const file = await this.props.space.getAsset(imageId);
-    const locale = this.props.locale;
-    const contentType = get(file, `fields.file.${locale}.contentType`);
-    // test if file extension is PNG/JPEG/JPG
-    const isImageValid = new RegExp(/image\/png|jpeg|jpg$/, 'i').test(contentType);
-
-    this.setState(() => ({
-      unsupportedImageType: !isImageValid
-    }))
   }
 
   toggleOverwrite = () => {
@@ -66,26 +46,23 @@ export class AITagView extends React.Component {
     }));
   }
 
-  updateTags = async (tags) => {
-    const tagsWithoutDuplicates = [...new Set(tags)];
-    await this.props.entries.imageTags.setValue(tagsWithoutDuplicates);
-    this.setState(() => ({
-      tags: tagsWithoutDuplicates
-    }));
-  }
-
   addTag = async (e) => {
     if (e.key !== "Enter" || !e.target.value) { return; }
 
-    await this.updateTags([e.target.value, ...this.state.tags]);
+    const newTags = [e.target.value, ...this.state.tags];
+    await this.props.entries.imageTags.setValue(newTags);
     this.setState(() => ({
+      tags: newTags,
       value: ""
     }));
   }
 
   deleteTag = async (tag) => {
     const newTags = this.state.tags.filter(t => t !== tag);
-    await this.updateTags(newTags);
+    await this.props.entries.imageTags.setValue(newTags);
+    this.setState(() => ({
+      tags: newTags
+    }));
   }
 
   fetchTags =  async () => {
@@ -101,7 +78,10 @@ export class AITagView extends React.Component {
 
       // upload new tags
       const newTags = this.state.overwrite ? aiTags : [...aiTags, ...this.state.tags];
-      this.updateTags(newTags);
+      await this.props.entries.imageTags.setValue(newTags)
+      this.setState(() => ({
+        tags: newTags
+      }));
     } catch(e) {
       this.props.notifier.error("Image Tagging failed. Please try again later.")
     } finally {
@@ -116,8 +96,7 @@ export class AITagView extends React.Component {
   }
 
   render() {
-
-    return <div className={ styles.inputWrapper }>
+    return <div>
       <TextInput
         testId="image-tag"
         placeholder="Type a tag and press enter"
@@ -139,16 +118,12 @@ export class AITagView extends React.Component {
           ))
         }
       </div>
-      {
-        this.state.unsupportedImageType && !this.state.isMissingImage &&
-        <Note noteType="warning" className={ styles.fileWarning }>Unfortunately, we can only auto-tag PNG and JPG file types</Note>
-      }
       <Button
         id="fetch-tag-btn"
         className={ styles.btn }
         buttonType="primary"
         type="button"
-        disabled={ this.state.isMissingImage || this.state.unsupportedImageType }
+        disabled={ this.state.isMissingImage }
         loading={ this.state.isFetchingTags }
         onClick={ this.fetchTags }
       >
@@ -157,7 +132,7 @@ export class AITagView extends React.Component {
       <CheckboxField
         id="overwrite-tags"
         labelText="Overwrite existing tags"
-        disabled={ this.state.isMissingImage || this.state.unsupportedImageType }
+        disabled={ this.state.isMissingImage }
         checked={ this.state.overwrite }
         onChange={ this.toggleOverwrite }
       />

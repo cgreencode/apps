@@ -48,7 +48,7 @@ export class AppView extends Component {
   state = {
     isInstalled: false,
     allContentTypesIds: [],
-    contentTypeId: 'imageWithAiTags',
+    contentTypeId: camelCase('AI Image Tags'),
     contentTypeName: 'Image with AI tags',
     isContentTypeIdPristine: true
   };

@@ -1,23 +1,18 @@
-import last from "lodash/last";
-import get from "lodash/get";
-import uniqBy from "lodash/uniqBy";
-import sortBy from "lodash/sortBy";
-import {
-  dataTransformer,
-  productsToVariantsTransformer
-} from "./dataTransformer";
-import { makeShopifyClient } from "./productResolvers";
+import last from 'lodash/last';
+import get from 'lodash/get';
+import uniqBy from 'lodash/uniqBy';
+import sortBy from 'lodash/sortBy';
+import { dataTransformer, productsToVariantsTransformer } from './dataTransformer';
+import { makeShopifyClient } from './productResolvers';
 
 const PER_PAGE = 20;
 
 class Pagination {
-  freshSearch = true;
-
   products = [];
 
   variants = [];
 
-  prevSearch = "";
+  prevSearch = '';
 
   constructor(sdk) {
     this.sdk = sdk;
@@ -37,25 +32,19 @@ class Pagination {
     // If there is a satisfactory size of variants to fill the next
     // page there is no need to fetch any more products and extract their variants
     // until the next click on the "Load more" button
-    const nothingLeftToFetch =
-      (!!this.products.length && !last(this.products).hasNextPage) ||
-      (!this.freshSearch && !this.products.length);
-    const hasEnoughVariantsToConsume =
-      this.variants.length >= PER_PAGE || nothingLeftToFetch;
+    const nothingLeftToFetch = !!this.products.length && !last(this.products).hasNextPage;
+    const hasEnoughVariantsToConsume = this.variants.length >= PER_PAGE || nothingLeftToFetch;
     if (hasEnoughVariantsToConsume) {
       const variants = this.variants.splice(0, PER_PAGE);
-      const lastProduct = this.products.find(
-        product => product.id === last(variants).productId
-      );
+      const lastProduct = this.products.find(product => product.id === last(variants).productId);
       return {
         pagination: {
           // There is going to be a next page in the following two complimentary cases:
           // A). The product corresponding to the last variant belongs is tagged as having a next page
           // B). There are variants left to consume in the in-memory variants list
-          hasNextPage:
-            get(lastProduct, ["hasNextPage"], false) || this.variants.length > 0
+          hasNextPage: get(lastProduct, ['hasNextPage'], false) || this.variants.length > 0
         },
-        products: variants.map(dataTransformer)
+        products: variants.map(dataTransformer(this.sdk.parameters.installation))
       };
     }
 
@@ -76,13 +65,8 @@ class Pagination {
       ? await this._fetchProducts(search)
       : await this._fetchNextPage(this.products);
     const nextVariants = productsToVariantsTransformer(nextProducts);
-    this.products = uniqBy([...this.products, ...nextProducts], "id");
-    this.variants = sortBy(uniqBy([...this.variants, ...nextVariants], "id"), [
-      "title",
-      "sku"
-    ]);
-
-    this.freshSearch = false;
+    this.products = uniqBy([...this.products, ...nextProducts], 'id');
+    this.variants = sortBy(uniqBy([...this.variants, ...nextVariants], 'id'), ['title', 'sku']);
   }
 
   /**
@@ -94,7 +78,7 @@ class Pagination {
     const query = { query: `variants:['sku:${search}'] OR title:${search}` };
     return await this.shopifyClient.product.fetchQuery({
       first: PER_PAGE,
-      sortBy: "TITLE",
+      sortBy: 'TITLE',
       reverse: true,
       ...(search.length && query)
     });
@@ -111,7 +95,6 @@ class Pagination {
   _resetPagination() {
     this.products = [];
     this.variants = [];
-    this.freshSearch = true;
   }
 }
 

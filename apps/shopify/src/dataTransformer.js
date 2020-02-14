@@ -1,20 +1,19 @@
-import get from "lodash/get";
-import last from "lodash/last";
-import flatten from "lodash/flatten";
+import get from 'lodash/get';
+import flatten from 'lodash/flatten';
 
 /**
  * Transforms the API response of Shopify into
  * the product schema expected by the SkuPicker component
  */
-export const dataTransformer = product => {
-  const image = get(product, ["image", "src"], "");
-  const sku = get(product, ["sku"], "");
-
+export const dataTransformer = ({ apiEndpoint }) => product => {
+  const image = get(product, ['image', 'src'], '');
+  const sku = get(product, ['sku'], '');
   return {
     id: product.id,
     image,
     name: product.title,
-    sku
+    sku,
+    ...(apiEndpoint && { externalLink: `https://${apiEndpoint}/admin/products?query=${sku}` })
   };
 };
 
@@ -34,30 +33,14 @@ export const productsToVariantsTransformer = products =>
     })
   );
 
-export const previewsToVariants = ({ apiEndpoint }) => ({
-  sku,
+export const previewsToVariants = ({ apiEndpoint }) => ({ sku, id, image, product }) => ({
   id,
-  image,
-  product
-}) => {
-  const productIdDecoded = atob(product.id);
-  const productId =
-    productIdDecoded &&
-    productIdDecoded.slice(productIdDecoded.lastIndexOf("/") + 1);
-  return {
-    id,
-    image: image.src,
-    // TODO: Remove sku:id when shared-sku-app supports internal IDs
-    // as an alternative piece of info to persist instead of the SKU.
-    // For now this is a temporary hack.
-    sku: id,
-    productId: product.id,
-    name: product.title,
-    ...(apiEndpoint &&
-      productId && {
-        externalLink: `https://${apiEndpoint}${
-          last(apiEndpoint) === "/" ? "" : "/"
-        }admin/products/${productId}`
-      })
-  };
-};
+  image: image.src,
+  // TODO: Remove sku:id when shared-sku-app supports internal IDs
+  // as an alternative piece of info to persist instead of the SKU.
+  // For now this is a temporary hack.
+  sku: id,
+  productId: product.id,
+  name: product.title,
+  ...(apiEndpoint && { externalLink: `https://${apiEndpoint}/admin/products?query=${sku}` })
+});
