@@ -77,7 +77,7 @@ function renderDialog(sdk) {
     insertHandler: data => sdk.close(data)
   });
 
-  instance.show({folder: {path: config.startFolder}});
+  instance.show();
 
   sdk.window.updateHeight(window.outerHeight);
 }
@@ -153,14 +153,6 @@ setup({
       "type": "Number",
       "required": false,
       "default": 10
-    },
-    {
-      "id": "startFolder",
-      "name": "Starting folder",
-      "description": "Path to starting folder for the media library dialog",
-      "type": "Symbol",
-      "required": false,
-      "default": ""
     }
   ],
   makeThumbnail,
