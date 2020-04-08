@@ -6,11 +6,14 @@ import {
   Typography,
   Paragraph,
   TextField,
-  TextLink,
+  CheckboxField,
+  FieldGroup,
+  SkeletonContainer,
+  SkeletonBodyText,
+  TextLink
 } from '@contentful/forma-36-react-components';
-import GatsbyIcon from '../GatsbyIcon';
-import ContentTypesPanel from './ContentTypesPanel';
-import styles from '../styles';
+import GatsbyIcon from './GatsbyIcon';
+import styles from './styles';
 
 function editorInterfacesToEnabledContentTypes(eis, appId) {
   const findAppWidget = item => item.widgetNamespace === 'app' && item.widgetId === appId;
@@ -32,13 +35,13 @@ function enabledContentTypesToTargetState(contentTypes, enabledContentTypes) {
   };
 }
 
-export class AppConfig extends React.Component {
+export default class AppConfig extends React.Component {
   static propTypes = {
     sdk: PropTypes.object.isRequired
   };
 
   state = {
-    contentTypes: null,
+    contentTypes: [],
     enabledContentTypes: {},
     previewUrl: '',
     webhookUrl: '',
@@ -233,7 +236,34 @@ export class AppConfig extends React.Component {
             />
           </Typography>
           <hr className={styles.splitter} />
-          <ContentTypesPanel contentTypes={contentTypes} enabledContentTypes={enabledContentTypes} onContentTypeToggle={this.onContentTypeToggle} />
+          <Typography>
+            <Heading>Content Types</Heading>
+            <Paragraph>
+              Select which content types will show the Gatsby Cloud functionality in the sidebar.
+            </Paragraph>
+            <div className={styles.checks}>
+              <FieldGroup>
+                {contentTypes.length > 0 ? (
+                  contentTypes.map(ct => (
+                    <CheckboxField
+                      key={ct.sys.id}
+                      labelIsLight
+                      labelText={ct.name}
+                      name={ct.name}
+                      checked={enabledContentTypes.includes(ct.sys.id)}
+                      value={ct.sys.id}
+                      onChange={() => this.onContentTypeToggle(ct.sys.id)}
+                      id={ct.sys.id}
+                    />
+                  ))
+                ) : (
+                  <SkeletonContainer width="100%">
+                    <SkeletonBodyText numberOfLines={3} />
+                  </SkeletonContainer>
+                )}
+              </FieldGroup>
+            </div>
+          </Typography>
         </div>
         <div className={styles.icon}>
           <GatsbyIcon />

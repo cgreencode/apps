@@ -9,7 +9,7 @@ global.window.document.getElementById = mockGetElementById;
 
 function loadEntryPoint() {
   jest.isolateModules(() => {
-    require('./index');
+    require('../src/index');
   });
 }
 

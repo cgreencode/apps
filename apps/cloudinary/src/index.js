@@ -76,8 +76,13 @@ function renderDialog(sdk) {
   const instance = cloudinary.createMediaLibrary(options, {
     insertHandler: data => sdk.close(data)
   });
+  const show_options={};
 
-  instance.show();
+  if (typeof(config.startFolder) !== 'undefined' && config.startFolder != "") {
+    show_options.folder = {path: config.startFolder};
+  }
+  
+  instance.show(show_options);
 
   sdk.window.updateHeight(window.outerHeight);
 }
@@ -153,6 +158,14 @@ setup({
       "type": "Number",
       "required": false,
       "default": 10
+    },
+    {
+      "id": "startFolder",
+      "name": "Starting folder",
+      "description": "Path to starting folder for the media library dialog",
+      "type": "Symbol",
+      "required": false,
+      "default": ""
     }
   ],
   makeThumbnail,
