@@ -3,15 +3,13 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": false,
-        "modules": false
+        "useBuiltIns": false
       }
     ],
     [
       "@babel/preset-react",
       {
-        "useBuiltIns": true,
-        "corejs": 3
+        "useBuiltIns": true
       }
     ]
   ],
