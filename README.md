@@ -2,7 +2,7 @@
 
 # Contentful apps repository
 
-This repository contains the source code for most apps on the [marketplace](https://www.contentful.com/marketplace/) and helpful resources to build your own apps for Contentful.
+This repository contains the source code for most apps on the [marketplace](https://www.contentful.com/marketplace/). 
 
 ## Installing an app
 
@@ -10,7 +10,7 @@ Head over to the [marketplace](https://www.contentful.com/marketplace/) and foll
 
 ## Building your own app
 
-The best way to get started on app development is with our [tutorial](https://www.contentful.com/developers/docs/extensibility/apps/building-apps/). After the tutorial, this repository contains great examples of different use cases that can be implemented with apps. You can follow their structure to develop similar integration patterns. If you want to start from scratch, check out our [`hello-world-react` example](examples/hello-world-react).
+The best way to get started on app development is with our [tutorial](https://www.contentful.com/developers/docs/extensibility/apps/building-apps/). After the tutorial, this repository contains great examples of different use cases that can be implemented with apps. You can follow their structure to develop similar integration patterns.
 
 Detailed documentation can be found in the [App SDK documentation](https://www.contentful.com/developers/docs/extensibility/ui-extensions/sdk-reference/) and the [Management HTTP API reference documentation](https://www.contentful.com/developers/docs/references/content-management-api/). 
 
@@ -18,8 +18,7 @@ Please note that each app has its individual source code license associated with
 
 ## Resources
 
-* [Tutorial: Building your first app](https://www.contentful.com/developers/docs/extensibility/apps/building-apps/)
-* [Webinar: How to build your first app with Contentful’s new App Framework](https://www.contentful.com/resources/build-app-contentful-app-framework-webinar/)
+* [Tutorial](https://www.contentful.com/developers/docs/extensibility/apps/building-apps/)
 * [App SDK documentation](https://www.contentful.com/developers/docs/extensibility/ui-extensions/sdk-reference/)
 * [Management HTTP API reference documentation](https://www.contentful.com/developers/docs/references/content-management-api/)
 * [Marketplace](https://www.contentful.com/marketplace/)
