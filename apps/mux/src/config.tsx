@@ -65,10 +65,14 @@ class Config extends React.Component<ConfigProps, IState> {
     // `sdk.app` exposes all app-related methods.
     this.app = this.props.sdk.app;
     this.space = this.props.sdk.space;
+
+    // `onConfigure` allows to configure a callback to be
+    // invoked when a user attempts to install the app or update
+    // its configuration.
+    this.app.onConfigure(() => this.onConfigure());
   }
 
   async componentDidMount() {
-    this.app.onConfigure(() => this.onConfigure());
     // Get current parameters of the app.
     const [parameters, eisRes, contentTypesRes] = await Promise.all([
       this.app.getParameters(),
@@ -146,7 +150,7 @@ class Config extends React.Component<ConfigProps, IState> {
               configure for Mux Video. For those configured fields you'll get a
               video uploader in the Contentful UI. Your videos will be
               transcoded, stored and delivered by{' '}
-              <a href="https://mux.com">Mux</a>.
+              <TextLink href="https://mux.com" rel="noopener noreferrer" target="_blank">Mux</TextLink>.
             </Paragraph>
           </Typography>
           <hr className="config-splitter" />
