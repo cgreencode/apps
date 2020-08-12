@@ -28,7 +28,9 @@ export default class IssueList extends React.Component<Props> {
     if (!issues.length) {
       return (
         <Typography>
-          <Paragraph className="paragraph-light">No Jira issues are linked to this entry</Paragraph>
+          <Paragraph className="paragraph-light">
+            No Jira issues are linked to this entry.
+          </Paragraph>
         </Typography>
       );
     }

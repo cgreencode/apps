@@ -4,6 +4,7 @@ import clamp from 'lodash/clamp';
 import debounce from 'lodash/debounce';
 import { Button, TextInput, Icon } from '@contentful/forma-36-react-components';
 import { DialogExtensionSDK } from 'contentful-ui-extensions-sdk';
+import { Divider } from '../Divider';
 import { ProductList } from './ProductList';
 import { Paginator } from './Paginator';
 import { Pagination, Product, Hash, ProductPreviewsFn, ProductsFn } from '../interfaces';
@@ -168,6 +169,7 @@ export class SkuPicker extends Component<Props, State> {
             </Button>
           </div>
         </header>
+        <Divider />
         <section className={styles.body}>
           <ProductList
             products={products}

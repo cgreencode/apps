@@ -28,11 +28,6 @@ interface CloudProjectsResource {
 
 interface CloudProjectResponse {
   error: boolean;
-  project: CloudProject | null;
-}
-
-interface CloudProjectsResponse {
-  error: boolean;
   projects: CloudProject[];
 }
 

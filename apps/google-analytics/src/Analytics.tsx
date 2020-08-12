@@ -81,7 +81,7 @@ export default class Analytics extends React.Component<AnalyticsProps, Analytics
         <div className={styles.header}>
           <div className={loading ? styles.pageViewsLoading : styles.pageViews}>
             <DisplayText size="large">{formattedPageViews}</DisplayText>
-            <Paragraph>pageviews</Paragraph>
+            <Paragraph>Pageviews</Paragraph>
           </div>
           <Select
             name="range"

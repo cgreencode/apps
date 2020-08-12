@@ -1,18 +1,22 @@
-import * as React from 'react';
+import * as React from "react";
 
-import get from 'lodash/get';
-import { AppExtensionSDK } from 'contentful-ui-extensions-sdk';
+import get from "lodash/get";
+import { AppExtensionSDK } from "contentful-ui-extensions-sdk";
 import {
   Heading,
   Paragraph,
   Typography,
   TextField,
   Form
-} from '@contentful/forma-36-react-components';
+} from "@contentful/forma-36-react-components";
 
-import FieldSelector from './FieldSelector';
+import FieldSelector from "./FieldSelector";
 
-import { parameterDefinitions, toInputParameters, toAppParameters } from './parameters';
+import {
+  parameterDefinitions,
+  toInputParameters,
+  toAppParameters
+} from "./parameters";
 import {
   getCompatibleFields,
   editorInterfacesToSelectedFields,
@@ -21,14 +25,14 @@ import {
   ContentType,
   CompatibleFields,
   FieldsConfig
-} from './fields';
-import { validateParameters } from './parameters';
+} from "./fields";
+import { validateParameters } from "./parameters";
 
-import { styles } from './styles';
+import { styles } from "./styles";
 
-import { Hash } from '../interfaces';
-import logo from '../logo.svg';
-import { FieldTypeInstructions } from './FieldTypeInstructions';
+import { Hash } from "../interfaces";
+import logo from "../logo.svg";
+import { FieldTypeInstructions } from "./FieldTypeInstructions";
 
 interface Props {
   sdk: AppExtensionSDK;
@@ -60,7 +64,7 @@ export default class AppConfig extends React.Component<Props, State> {
       app.getParameters()
     ]);
 
-    const fieldsConfig = get(parameters, ['fieldsConfig'], {});
+    const fieldsConfig = get(parameters, ["fieldsConfig"], {});
 
     const contentTypes = (contentTypesResponse as Hash).items as ContentType[];
     const editorInterfaces = (eisResponse as Hash).items as EditorInterface[];
@@ -76,7 +80,11 @@ export default class AppConfig extends React.Component<Props, State> {
       {
         contentTypes: filteredContentTypes,
         compatibleFields,
-        selectedFields: editorInterfacesToSelectedFields(editorInterfaces, fieldsConfig, ids.app),
+        selectedFields: editorInterfacesToSelectedFields(
+          editorInterfaces,
+          fieldsConfig,
+          ids.app
+        ),
         parameters: toInputParameters(parameterDefinitions, parameters)
       },
       () => app.setReady()
@@ -116,11 +124,12 @@ export default class AppConfig extends React.Component<Props, State> {
   };
 
   render() {
-    const { contentTypes, compatibleFields, selectedFields, parameters } = this.state;
-    const { sdk } = this.props;
     const {
-      ids: { space, environment }
-    } = sdk;
+      contentTypes,
+      compatibleFields,
+      selectedFields,
+      parameters
+    } = this.state;
 
     return (
       <div className={styles.background}>
@@ -128,8 +137,9 @@ export default class AppConfig extends React.Component<Props, State> {
           <Typography>
             <Heading>About commercetools</Heading>
             <Paragraph>
-              The commercetools app allows editors to select products from their commercetools
-              account and reference them inside of Contentful entries.
+              The commercetools app allows editors to select products from their
+              commercetools account and reference them inside of Contentful
+              entries.
             </Paragraph>
 
             <hr className={styles.splitter} />
@@ -146,7 +156,7 @@ export default class AppConfig extends React.Component<Props, State> {
                     name={key}
                     labelText={def.name}
                     textInputProps={{
-                      width: 'large',
+                      width: "large",
                       maxLength: 255
                     }}
                     helpText={def.description}
@@ -160,8 +170,6 @@ export default class AppConfig extends React.Component<Props, State> {
             <hr className={styles.splitter} />
 
             <FieldTypeInstructions
-              space={space}
-              environment={environment}
               contentTypesFound={contentTypes.length > 0}
             />
             <FieldSelector

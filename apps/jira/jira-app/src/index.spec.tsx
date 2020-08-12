@@ -106,7 +106,6 @@ describe('The Jira App Components', () => {
     it('should go through the installation flow successfully', async () => {
       const token = '123';
       const expires = Date.now() + 600000;
-      jest.useFakeTimers();
 
       Object.defineProperty(window, 'localStorage', {
         writable: true,
@@ -137,15 +136,15 @@ describe('The Jira App Components', () => {
       });
 
       const instanceSelector = wrapper.getByTestId('instance-selector');
-      const projectSearchInput: HTMLInputElement = wrapper.getByTestId('cf-ui-text-input') as HTMLInputElement;
+      const projectSelector = wrapper.getByTestId('project-selector');
 
       // expect instance data to load into the first <select>
       expect(instanceSelector.textContent).toEqual(
         'Select a sitetest.atlassian.nettest2.atlassian.net'
       );
 
-      // expect project data to not have loaded yet in the next <input>
-      expect(projectSearchInput.placeholder).toEqual('Search for a project');
+      // expect project data to not have loaded yet in the next <select>
+      expect(projectSelector.textContent).toEqual('Pick a project');
 
       // pick an instance
       fireEvent.change(instanceSelector, {
@@ -154,21 +153,13 @@ describe('The Jira App Components', () => {
 
       await wait();
 
+      // expect project data to have loaded into the project <select>
+      expect(projectSelector.textContent).toEqual('Pick a projectProject name 2');
+
       // pick the extensibility project
-      fireEvent.change(projectSearchInput, {
-        target: { value: 'extensibility' }
+      fireEvent.change(projectSelector, {
+        target: { value: '10555' }
       });
-
-      jest.advanceTimersByTime(1000);
-
-      await wait(() => {
-        wrapper.getByTestId('search-result-project');
-      });
-
-      fireEvent.click(wrapper.getByTestId('search-result-project'));
-
-      // expect project data to have loaded into the project <input>'s placeholder
-      expect(projectSearchInput.placeholder).toEqual('Project name 2');
 
       const contentTypeList = wrapper.getByTestId('content-types');
 

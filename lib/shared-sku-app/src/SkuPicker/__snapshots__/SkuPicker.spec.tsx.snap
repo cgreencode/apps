@@ -3,7 +3,7 @@
 exports[`SkuPicker should render successfully with no products selected 1`] = `
 <div>
   <header
-    class="css-1irjrk3"
+    class="css-ss1rwp"
   >
     <div
       class="css-kpva4h"
@@ -70,14 +70,17 @@ exports[`SkuPicker should render successfully with no products selected 1`] = `
       </button>
     </div>
   </header>
+  <hr
+    class="css-6wso32"
+  />
   <section
-    class="css-1gzkqoh"
+    class="css-nf44ad"
   >
     <div
       class="css-almiqb"
     >
       <div
-        class="css-jfu8ng"
+        class="css-zkv16y"
       >
         <div
           aria-checked="false"
@@ -115,7 +118,7 @@ exports[`SkuPicker should render successfully with no products selected 1`] = `
         </div>
       </div>
       <div
-        class="css-jfu8ng"
+        class="css-zkv16y"
       >
         <div
           aria-checked="false"
@@ -153,7 +156,7 @@ exports[`SkuPicker should render successfully with no products selected 1`] = `
         </div>
       </div>
       <div
-        class="css-jfu8ng"
+        class="css-zkv16y"
       >
         <div
           aria-checked="false"

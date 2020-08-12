@@ -52,6 +52,9 @@ describe('App', () => {
         async getParameters() {
           return null;
         },
+        async getCurrentState() {
+          return null;
+        },
         async onConfigurationCompleted() {}
       },
       space: {
@@ -76,7 +79,7 @@ describe('App', () => {
 
   it('should load the AppConfig page and allow for installation', async () => {
     mockSdk.app.onConfigure = jest.fn();
-    mockSdk.location.is = (location: string) => location === locations.LOCATION_APP_CONFIG;
+    mockSdk.location.is = (location: string) => location === locations.LOCATION_APP;
     const wrapper = render(<App sdk={mockSdk as any} />);
 
     const projectInput = await wrapper.findByTestId('cf-ui-text-input');
@@ -97,7 +100,7 @@ describe('App', () => {
 
   it('should fail installation if no projectId is provided', async () => {
     mockSdk.app.onConfigure = jest.fn();
-    mockSdk.location.is = (location: string) => location === locations.LOCATION_APP_CONFIG;
+    mockSdk.location.is = (location: string) => location === locations.LOCATION_APP;
 
     render(<App sdk={mockSdk as any} />);
     await wait();
