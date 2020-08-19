@@ -19,14 +19,12 @@ import './index.css';
 import Config from './config';
 import Player from './player';
 import DeleteButton from './deleteButton';
-import { fetchTokens } from './signedUrlEndpoint';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 interface InstallationParams {
   muxAccessTokenId: string;
   muxAccessTokenSecret: string;
-  muxSignedUrlEndpoint?: string;
 }
 
 interface AppProps {
@@ -36,8 +34,7 @@ interface AppProps {
 interface MuxContentfulObject {
   uploadId: string;
   assetId: string;
-  playbackId?: string;
-  signedPlaybackId?: string;
+  playbackId: string;
   ready: boolean;
   ratio: string;
   error: string;
@@ -49,8 +46,6 @@ interface AppState {
   error: string | false;
   errorShowResetAction: boolean | false;
   isDeleting: boolean | false;
-  playbackUrl?: string;
-  posterUrl?: string;
 }
 
 export class App extends React.Component<AppProps, AppState> {
@@ -62,11 +57,8 @@ export class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
 
-    const {
-      muxAccessTokenId,
-      muxAccessTokenSecret,
-      muxSignedUrlEndpoint,
-    } = this.props.sdk.parameters.installation as InstallationParams;
+    const { muxAccessTokenId, muxAccessTokenSecret } = this.props.sdk.parameters
+      .installation as InstallationParams;
 
     this.muxBaseReqOptions = {
       mode: 'cors',
@@ -81,11 +73,6 @@ export class App extends React.Component<AppProps, AppState> {
         "It doesn't look like you've specified your Mux Access Token ID or Secret in the extension configuration.",
       errorShowResetAction: false,
     };
-  }
-
-  getSignedUrlEndpoint() {
-    return (this.props.sdk.parameters.installation as InstallationParams)
-      .muxSignedUrlEndpoint;
   }
 
   detachExternalChangeHandler: Function | null = null;
@@ -116,20 +103,12 @@ export class App extends React.Component<AppProps, AppState> {
             error: 'Error: it appears that this asset has been deleted',
             errorShowResetAction: true,
           });
-          return
-        }
-        if (this.state.value.playbackId) {
-          await this.setPlaybackAndPosterValues(this.state.value.playbackId, false)
-        }
-        if (this.state.value.signedPlaybackId) {
-          await this.setPlaybackAndPosterValues(this.state.value.signedPlaybackId, true)
         }
         return;
       }
 
       if (this.state.value.uploadId && !this.state.value.ready) {
         await this.pollForUploadDetails();
-        return;
       }
     }
   }
@@ -213,7 +192,7 @@ export class App extends React.Component<AppProps, AppState> {
         cors_origin: window.location.origin,
         new_asset_settings: {
           passthrough: passthroughId,
-          playback_policy: this.getSignedUrlEndpoint() ? 'signed' : 'public',
+          playback_policy: 'public',
         },
       }),
       method: 'POST',
@@ -308,32 +287,7 @@ export class App extends React.Component<AppProps, AppState> {
     }
   };
 
-  setPlaybackAndPosterValues = async (
-    playbackId: string,
-    isPlaybackIdSigned: boolean
-  ) => {
-    const { muxSignedUrlEndpoint } = this.props.sdk.parameters
-      .installation as InstallationParams;
-    console.log('debug setPlaybackAndPosterValues')
-    if (isPlaybackIdSigned && muxSignedUrlEndpoint) {
-      const { playbackToken, thumbnailToken } = await fetchTokens(
-        playbackId,
-        muxSignedUrlEndpoint
-      );
-      this.setState({
-        playbackUrl: `https://stream.mux.com/${playbackId}.m3u8?token=${playbackToken}`,
-        posterUrl: `https://image.mux.com/${playbackId}/thumbnail.jpg?token=${thumbnailToken}`,
-      });
-    } else {
-      this.setState({
-        playbackUrl: `https://stream.mux.com/${playbackId}.m3u8`,
-        posterUrl: `https://image.mux.com/${playbackId}/thumbnail.jpg`,
-      });
-    }
-  };
-
   getAsset = async () => {
-    console.log('debug this.state.value', this.state.value)
     if (!this.state.value || !this.state.value.assetId) {
       throw Error(
         'Something went wrong, we cannot getAsset without an assetId.'
@@ -370,20 +324,14 @@ export class App extends React.Component<AppProps, AppState> {
       throw Error('Something went wrong, we were not able to get the asset.');
     }
 
-    const playbackId = asset.playback_ids.find(({ policy } : {policy:string}) => policy === 'public').id;
-    const signedPlaybackId = asset.playback_ids.find(({ policy } : { policy:string }) => policy === 'signed').id;
-
     await this.props.sdk.field.setValue({
       uploadId: this.state.value.uploadId,
       assetId: this.state.value.assetId,
-      playbackId,
-      signedPlaybackId,
+      playbackId: asset['playback_ids'][0].id,
       ready: asset.status === 'ready',
       ratio: asset.ratio,
       error: assetError,
     });
-
-    await this.setPlaybackAndPosterValues(playbackId || signedPlaybackId, !!playbackId);
 
     if (assetError) {
       this.setAssetError(assetError);
@@ -435,16 +383,11 @@ export class App extends React.Component<AppProps, AppState> {
         );
       }
 
-      if (
-        this.state.value.ready &&
-        this.state.playbackUrl &&
-        this.state.posterUrl
-      ) {
+      if (this.state.value.ready) {
         return (
           <div>
             <Player
-              playbackUrl={this.state.playbackUrl}
-              posterUrl={this.state.posterUrl}
+              playbackId={this.state.value.playbackId}
               ratio={this.state.value.ratio}
               onReady={this.onPlayerReady}
             />
