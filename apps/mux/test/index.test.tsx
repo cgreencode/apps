@@ -50,29 +50,20 @@ test('displays an upload form before the user does anything', () => {
   expect(wrapper.find('input').prop('type')).toBe('file');
 });
 
-/*
-test('displays a player when the asset is ready', async () => {
+test('displays a player when the asset is ready', () => {
   const mockedSdk = {
     ...SDK_MOCK,
     field: {
       ...SDK_MOCK.field,
       getValue: () => ({
         ready: true,
-        assetId: 'test-assetId123',
-        playbackId: 'test-playbackId123',
       }),
     },
   };
 
-  const wrapper = await mount(<App sdk={mockedSdk as any} />);
-  (wrapper.instance() as App).getAsset = () => Promise.resolve();
-  // await wrapper.update()
-  console.log('debug wrapper', wrapper.state())
-  expect(wrapper.state('playbackUrl')).toEqual('https://stream.mux.com/test-playbackId123.m3u8')
-  expect(wrapper.state('posterUrl')).toEqual('https://image.mux.com/test-playbackId123/thumbnail.jpg')
+  const wrapper = mount(<App sdk={mockedSdk as any} />);
   expect(wrapper.find('Player')).toHaveLength(1);
 });
-*/
 
 test('displays an error if the asset is errored', () => {
   const mockedSdk = {
