@@ -15,7 +15,6 @@ import {
   Typography,
   FieldGroup,
   TextLink,
-  Spinner,
 } from '@contentful/forma-36-react-components';
 import {
   AppExtensionSDK,
@@ -34,7 +33,6 @@ import {
 } from 'shared-dam-app/src/utils';
 import MuxLogoSvg from './mux-logo.svg';
 import './config.css';
-import ApiClient from './apiClient';
 
 interface ConfigProps {
   sdk: AppExtensionSDK;
@@ -43,9 +41,6 @@ interface ConfigProps {
 interface IParameters {
   muxAccessTokenId?: string;
   muxAccessTokenSecret?: string;
-  muxEnableSignedUrls?: boolean;
-  muxSigningKeyId?: string;
-  muxsigningKeyPrivate?: string;
 }
 
 interface IState {
@@ -53,7 +48,6 @@ interface IState {
   contentTypes: ContentType[];
   compatibleFields: CompatibleFields;
   selectedFields: SelectedFields;
-  isEnablingSignedUrls: boolean;
 }
 
 class Config extends React.Component<ConfigProps, IState> {
@@ -67,7 +61,6 @@ class Config extends React.Component<ConfigProps, IState> {
       contentTypes: [],
       compatibleFields: {},
       selectedFields: {},
-      isEnablingSignedUrls: false,
     };
 
     // `sdk.app` exposes all app-related methods.
@@ -133,94 +126,10 @@ class Config extends React.Component<ConfigProps, IState> {
     );
   }
 
-  haveValidSigningKeys = async () => {
-    if (
-      !(
-        this.state.parameters.muxSigningKeyId &&
-        this.state.parameters.muxsigningKeyPrivate
-      )
-    )
-      return;
-    const apiClient = new ApiClient(
-      this.state.parameters.muxAccessTokenId!,
-      this.state.parameters.muxAccessTokenSecret!
-    );
-    const signingKeyExists = await apiClient
-      .get(`/video/v1/signing-keys/${this.state.parameters.muxSigningKeyId}`)
-      .then((res) => res.status === 200);
-    return signingKeyExists;
-  };
-
-  haveApiCredentials = () => {
-    return (
-      this.state.parameters.muxAccessTokenId &&
-      this.state.parameters.muxAccessTokenSecret
-    );
-  };
-
-  toggleSignedUrls = async (enabled: boolean) => {
-    if (!enabled) {
-      this.setState({
-        parameters: {
-          ...this.state.parameters,
-          muxEnableSignedUrls: false,
-        },
-      });
-      return;
-    }
-
-    if (await this.haveValidSigningKeys()) {
-      this.setState({
-        parameters: {
-          ...this.state.parameters,
-          muxEnableSignedUrls: true,
-        },
-      });
-      return;
-    }
-
-    const apiClient = new ApiClient(
-      this.state.parameters.muxAccessTokenId!,
-      this.state.parameters.muxAccessTokenSecret!
-    );
-    this.setState({ isEnablingSignedUrls: true });
-    let res;
-    try {
-      res = await apiClient.post('/video/v1/signing-keys');
-    } catch (e) {
-      this.props.sdk.notifier.error(
-        'Error creating signing keys, please refresh and try again'
-      );
-      return;
-    }
-    if (res.status === 401) {
-      this.props.sdk.notifier.error(
-        'It ooks like your access token or secret is incorrect'
-      );
-    }
-    const json = await res.json();
-    const { data: signingKey } = json;
-    this.setState({
-      isEnablingSignedUrls: false,
-      parameters: {
-        ...this.state.parameters,
-        muxSigningKeyId: signingKey.id,
-        muxsigningKeyPrivate: signingKey.private_key,
-        muxEnableSignedUrls: true,
-      },
-    });
-  };
-
   // Renders the UI of the app.
   render() {
     const {
-      parameters: {
-        muxAccessTokenId,
-        muxAccessTokenSecret,
-        muxEnableSignedUrls,
-        muxSigningKeyId,
-        muxsigningKeyPrivate,
-      },
+      parameters: { muxAccessTokenId, muxAccessTokenSecret },
       contentTypes,
       compatibleFields,
     } = this.state;
@@ -272,8 +181,8 @@ class Config extends React.Component<ConfigProps, IState> {
                 onChange={(e) =>
                   this.setState({
                     parameters: {
-                      ...this.state.parameters,
                       muxAccessTokenId: (e.target as HTMLTextAreaElement).value,
+                      muxAccessTokenSecret,
                     },
                   })
                 }
@@ -287,7 +196,7 @@ class Config extends React.Component<ConfigProps, IState> {
                 onChange={(e) =>
                   this.setState({
                     parameters: {
-                      ...this.state.parameters,
+                      muxAccessTokenId,
                       muxAccessTokenSecret: (e.target as HTMLTextAreaElement)
                         .value,
                     },
@@ -345,40 +254,6 @@ class Config extends React.Component<ConfigProps, IState> {
                 })}
             </Form>
           </Typography>
-          <hr className="config-splitter" />
-          <Form spacing="default">
-            <Heading>Advanced: Signed URLs</Heading>
-            <Paragraph>
-              This is an advanced feature if you want to support signed urls. If
-              you use this feature you must read and understand this guide. To
-              use signed URLs in your application you will have to generate
-              valid signatures on your server.
-            </Paragraph>
-            <CheckboxField
-              labelText="Enable signed URLs"
-              helpText=""
-              name="mux-enable-signed-urls"
-              id="mux-enable-signed_urls"
-              checked={muxEnableSignedUrls}
-              disabled={!this.haveApiCredentials()}
-              onChange={(e) =>
-                this.toggleSignedUrls((e.target as HTMLInputElement).checked)
-              }
-            />
-            {this.state.isEnablingSignedUrls && (
-              <Paragraph>
-                <Spinner size="small" /> Creating signing keys
-              </Paragraph>
-            )}
-            {muxEnableSignedUrls && muxSigningKeyId && (
-              <Paragraph>
-                The signing key ID that contentful will use is{' '}
-                {this.state.parameters.muxSigningKeyId}. This key is only used
-                for previewing content in the Contentful UI. You should generate
-                a different key to use in your application server.
-              </Paragraph>
-            )}
-          </Form>
           <hr className="config-splitter" />
           <Paragraph>
             After entering your API credentials, click 'Install' above.
