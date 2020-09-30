@@ -36,7 +36,7 @@ export default class OAuth extends React.Component<Props> {
         this.props.setToken(token);
       }
 
-      if (oauthWindow && (token || error)) {
+      if (oauthWindow) {
         oauthWindow.close();
       }
     });
