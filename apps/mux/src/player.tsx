@@ -5,8 +5,7 @@ import Hls from 'hls.js';
 import './player.css';
 
 interface PlayerProps {
-  playbackUrl: string;
-  posterUrl: string;
+  playbackId: string;
   ratio: string;
   onReady: () => void;
 }
@@ -38,14 +37,18 @@ class Player extends React.Component<PlayerProps, {}> {
     }
 
     if (Hls.isSupported()) {
-      this.hls.loadSource(this.props.playbackUrl);
+      this.hls.loadSource(this.playbackUrl());
       this.hls.attachMedia(this.playerRef.current);
     } else if (
       this.playerRef.current.canPlayType('application/vnd.apple.mpegurl')
     ) {
-      this.playerRef.current.src = this.props.playbackUrl;
+      this.playerRef.current.src = this.playbackUrl();
     }
   }
+
+  playbackUrl = () => `https://stream.mux.com/${this.props.playbackId}.m3u8`;
+  posterUrl = () =>
+    `https://image.mux.com/${this.props.playbackId}/thumbnail.jpg`;
 
   convertRatio = () => {
     const [width, height] = this.props.ratio
@@ -64,7 +67,7 @@ class Player extends React.Component<PlayerProps, {}> {
       <div className="player">
         <video
           ref={this.playerRef}
-          poster={this.props.posterUrl}
+          poster={this.posterUrl()}
           controls
           width="100%"
           height={this.getHeight() + 'px'}

@@ -6,7 +6,7 @@ import logo from './logo.svg';
 const BYNDER_SDK_URL =
   'https://d8ejoa1fys2rk.cloudfront.net/modules/compactview/includes/js/client-1.5.0.min.js';
 
-const CTA = 'Select a file on Bynder';
+const CTA = 'Select or upload a file on Bynder';
 
 const FIELDS_TO_PERSIST = [
   'archive',
@@ -31,8 +31,6 @@ const FIELDS_TO_PERSIST = [
   'width'
 ];
 
-const validAssetTypes = ['image', 'audio', 'document', 'video'];
-
 function makeThumbnail(resource) {
   const thumbnail = (resource.thumbnails && resource.thumbnails.webimage) || resource.src;
   const url = typeof thumbnail === 'string' ? thumbnail : undefined;
@@ -41,20 +39,12 @@ function makeThumbnail(resource) {
   return [url, alt];
 }
 
-function prepareBynderHTML({ bynderURL, assetTypes }) {
-  let types = '';
-  if (!assetTypes) {
-    // We deault to just images in this fallback since this is the behavior the App had in its initial release
-    types = 'image';
-  } else {
-    types = assetTypes.trim().split(',').map(type => type.trim()).join(',');
-  }
-
+function prepareBynderHTML(bynderURL) {
   return `
     <div class="dialog-container">
       <div
         id="bynder-compactview"
-        data-assetTypes="${types}"
+        data-assetTypes="image"
         data-autoload="true"
         data-button="Load media from bynder.com"
         data-collections="true"
@@ -74,7 +64,7 @@ function renderDialog(sdk) {
   const config = sdk.parameters.invocation;
 
   const container = document.createElement('div');
-  container.innerHTML = prepareBynderHTML(config);
+  container.innerHTML = prepareBynderHTML(config.bynderURL);
   document.body.appendChild(container);
 
   const script = document.createElement('script');
@@ -113,22 +103,15 @@ function isDisabled() {
   return false;
 }
 
-function validateParameters({ bynderURL, assetTypes }) {
+function validateParameters({ bynderURL }) {
   const hasValidProtocol = bynderURL.startsWith('https://');
   const isHTMLSafe = ['"', '<', '>'].every(unsafe => !bynderURL.includes(unsafe));
 
-  if (!hasValidProtocol || !isHTMLSafe) {
+  if (hasValidProtocol && isHTMLSafe) {
+    return null;
+  } else {
     return 'Provide a valid Bynder URL.';
   }
-
-  const types = assetTypes.trim().split(',').map(type => type.trim());
-  const isAssetTypesValid = types.every(type => validAssetTypes.includes(type));
-
-  if (!isAssetTypesValid) {
-    return `Only valid asset types may be selected: ${validAssetTypes.join(',')}`
-  }
-
-  return null;
 }
 
 setup({
@@ -144,14 +127,6 @@ setup({
       "type": "Symbol",
       "name": "Bynder URL",
       "description": "Provide Bynder URL of your account.",
-      "required": true
-    },
-    {
-      "id": "assetTypes",
-      "type": "Symbol",
-      "name": "Asset types",
-      "description": "Choose which types of assets can be selected.",
-      "default": validAssetTypes.join(','),
       "required": true
     }
   ],
