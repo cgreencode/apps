@@ -13,7 +13,7 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
     <br />
   </p>
   <button
-    class="Button__Button___1ZfFj Button__Button--primary___JImeO Button__Button--full-width___3Fmpo"
+    class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO Button__Button--full-width___3Fmpo"
     data-test-id="oauth-button"
     type="button"
   >
@@ -47,35 +47,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-article"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Article"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Article"
-            name="Article"
-            type="checkbox"
-            value="article"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Article"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Article"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Article"
+          name="Article"
+          type="checkbox"
+          value="article"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -94,35 +74,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-author"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Author"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Author"
-            name="Author"
-            type="checkbox"
-            value="author"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Author"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Author"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Author"
+          name="Author"
+          type="checkbox"
+          value="author"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -141,35 +101,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-cloudinaryImage"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="BynderImage"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="BynderImage"
-            name="BynderImage"
-            type="checkbox"
-            value="cloudinaryImage"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="BynderImage"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="BynderImage"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="BynderImage"
+          name="BynderImage"
+          type="checkbox"
+          value="cloudinaryImage"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -188,35 +128,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-cta"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="CTA"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="CTA"
-            name="CTA"
-            type="checkbox"
-            value="cta"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="CTA"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="CTA"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="CTA"
+          name="CTA"
+          type="checkbox"
+          value="cta"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -235,35 +155,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-text"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Featured"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Featured"
-            name="Featured"
-            type="checkbox"
-            value="text"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Featured"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Featured"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Featured"
+          name="Featured"
+          type="checkbox"
+          value="text"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -282,35 +182,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-heroImage"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Hero Image"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Hero Image"
-            name="Hero Image"
-            type="checkbox"
-            value="heroImage"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Hero Image"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Hero Image"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Hero Image"
+          name="Hero Image"
+          type="checkbox"
+          value="heroImage"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -329,35 +209,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-imageCarousel"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Image Carousel"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Image Carousel"
-            name="Image Carousel"
-            type="checkbox"
-            value="imageCarousel"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Image Carousel"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Image Carousel"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Image Carousel"
+          name="Image Carousel"
+          type="checkbox"
+          value="imageCarousel"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -376,35 +236,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-imageWithFocalPoint"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Image with Focal Point"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Image with Focal Point"
-            name="Image with Focal Point"
-            type="checkbox"
-            value="imageWithFocalPoint"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Image with Focal Point"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Image with Focal Point"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Image with Focal Point"
+          name="Image with Focal Point"
+          type="checkbox"
+          value="imageWithFocalPoint"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -423,35 +263,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-imageWithMoreFocalPoints"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Image with Focal Points"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Image with Focal Points"
-            name="Image with Focal Points"
-            type="checkbox"
-            value="imageWithMoreFocalPoints"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Image with Focal Points"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Image with Focal Points"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Image with Focal Points"
+          name="Image with Focal Points"
+          type="checkbox"
+          value="imageWithMoreFocalPoints"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -470,35 +290,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-page"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Page"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Page"
-            name="Page"
-            type="checkbox"
-            value="page"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Page"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Page"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Page"
+          name="Page"
+          type="checkbox"
+          value="page"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -517,35 +317,15 @@ exports[`The Jira App Components Location: APP_CONFIG, Component: <App /> should
         class="ControlledInputField__ControlledInputField___2uIG9"
         data-test-id="ct-item-variationContainer"
       >
-        <div
-          class="ControlledInput__Checkbox___ra2TY ControlledInputField__ControlledInputField__input___3OMYB"
-        >
-          <input
-            aria-label="Variation Container"
-            class="ControlledInput__ControlledInput___2XK3j"
-            data-test-id="cf-ui-controlled-input"
-            id="Variation Container"
-            name="Variation Container"
-            type="checkbox"
-            value="variationContainer"
-          />
-          <label
-            class="ControlledInput__Input__ghost___2bBB9 ControlledInput__Checkbox__ghost___1Oqlk"
-            for="Variation Container"
-          >
-            <svg
-              class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--white___3GVPJ"
-              data-test-id="cf-ui-icon"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-            >
-              <path
-                d="M20.7071 5.29289C21.0976 5.68342 21.0976 6.31658 20.7071 6.70711L9.70711 17.7071C9.51957 17.8946 9.26522 18 9 18C8.73478 18 8.48043 17.8946 8.29289 17.7071L3.29289 12.7071C2.90237 12.3166 2.90237 11.6834 3.29289 11.2929C3.68342 10.9024 4.31658 10.9024 4.70711 11.2929L9 15.5858L19.2929 5.29289C19.6834 4.90237 20.3166 4.90237 20.7071 5.29289Z"
-              />
-            </svg>
-          </label>
-        </div>
+        <input
+          aria-label="Variation Container"
+          class="ControlledInput__ControlledInput___2XK3j ControlledInputField__ControlledInputField__input___3OMYB"
+          data-test-id="cf-ui-controlled-input"
+          id="Variation Container"
+          name="Variation Container"
+          type="checkbox"
+          value="variationContainer"
+        />
         <div>
           <label
             class="FormLabel__FormLabel___3d6zQ ControlledInputField__ControlledInputField__label___a9J52"
@@ -617,7 +397,7 @@ Object {
                 data-test-id="oauth-content"
               >
                 <button
-                  class="Button__Button___1ZfFj Button__Button--primary___JImeO Button__Button--full-width___3Fmpo"
+                  class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO Button__Button--full-width___3Fmpo"
                   data-test-id="oauth-button"
                   type="button"
                 >
@@ -682,7 +462,7 @@ Object {
               data-test-id="oauth-content"
             >
               <button
-                class="Button__Button___1ZfFj Button__Button--primary___JImeO Button__Button--full-width___3Fmpo"
+                class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO Button__Button--full-width___3Fmpo"
                 data-test-id="oauth-button"
                 type="button"
               >
@@ -825,12 +605,17 @@ Object {
                     <svg
                       class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--muted___3egnD Select__Select__icon___OBmvS"
                       data-test-id="cf-ui-icon"
-                      height="1em"
+                      height="24"
                       viewBox="0 0 24 24"
-                      width="1em"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                        d="M7 10l5 5 5-5z"
+                      />
+                      <path
+                        d="M0 0h24v24H0z"
+                        fill="none"
                       />
                     </svg>
                   </div>
@@ -877,7 +662,7 @@ Object {
                     data-test-id="cf-ui-paragraph"
                   >
                     <button
-                      class="Button__Button___1ZfFj Button__Button--primary___JImeO"
+                      class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
                       data-test-id="cf-ui-button"
                       type="button"
                     >
@@ -926,9 +711,10 @@ Object {
                       <svg
                         class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--warning___39Bnz"
                         data-test-id="cf-ui-icon"
-                        height="1em"
+                        height="18"
                         viewBox="0 0 24 24"
-                        width="1em"
+                        width="18"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
                           d="M0 0h24v24H0z"
@@ -939,12 +725,8 @@ Object {
                         />
                       </svg>
                     </div>
-                    <div
-                      class="Note__Note__info___2m_-K"
-                    >
-                      <div
-                        class="Note__Note__content___H1pf-"
-                      >
+                    <div>
+                      <div>
                         There are 
                         <strong>
                           no content types
@@ -1042,12 +824,17 @@ Object {
                   <svg
                     class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--muted___3egnD Select__Select__icon___OBmvS"
                     data-test-id="cf-ui-icon"
-                    height="1em"
+                    height="24"
                     viewBox="0 0 24 24"
-                    width="1em"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                      d="M7 10l5 5 5-5z"
+                    />
+                    <path
+                      d="M0 0h24v24H0z"
+                      fill="none"
                     />
                   </svg>
                 </div>
@@ -1094,7 +881,7 @@ Object {
                   data-test-id="cf-ui-paragraph"
                 >
                   <button
-                    class="Button__Button___1ZfFj Button__Button--primary___JImeO"
+                    class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
                     data-test-id="cf-ui-button"
                     type="button"
                   >
@@ -1143,9 +930,10 @@ Object {
                     <svg
                       class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--warning___39Bnz"
                       data-test-id="cf-ui-icon"
-                      height="1em"
+                      height="18"
                       viewBox="0 0 24 24"
-                      width="1em"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h24v24H0z"
@@ -1156,12 +944,8 @@ Object {
                       />
                     </svg>
                   </div>
-                  <div
-                    class="Note__Note__info___2m_-K"
-                  >
-                    <div
-                      class="Note__Note__content___H1pf-"
-                    >
+                  <div>
+                    <div>
                       There are 
                       <strong>
                         no content types
@@ -1283,6 +1067,7 @@ Object {
               <div
                 class="Dropdown__Dropdown___nAsJ-"
                 data-test-id="cf-ui-card-actions"
+                position="bottom-right"
               >
                 <button
                   aria-expanded="false"
@@ -1298,9 +1083,10 @@ Object {
                     <svg
                       class="Icon__Icon___38Epv Icon__Icon--small___1yGZK undefined IconButton__IconButton__icon___3yZQN"
                       data-test-id="cf-ui-icon"
-                      height="1em"
+                      height="18"
                       viewBox="0 0 24 24"
-                      width="1em"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h24v24H0z"
@@ -1343,7 +1129,7 @@ Object {
               class="status"
             >
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Task"
@@ -1352,7 +1138,7 @@ Object {
                 />
               </span>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Medium"
@@ -1381,7 +1167,7 @@ Object {
                 </span>
               </button>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Dean Anderson"
@@ -1413,6 +1199,7 @@ Object {
               <div
                 class="Dropdown__Dropdown___nAsJ-"
                 data-test-id="cf-ui-card-actions"
+                position="bottom-right"
               >
                 <button
                   aria-expanded="false"
@@ -1428,9 +1215,10 @@ Object {
                     <svg
                       class="Icon__Icon___38Epv Icon__Icon--small___1yGZK undefined IconButton__IconButton__icon___3yZQN"
                       data-test-id="cf-ui-icon"
-                      height="1em"
+                      height="18"
                       viewBox="0 0 24 24"
-                      width="1em"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h24v24H0z"
@@ -1473,7 +1261,7 @@ Object {
               class="status"
             >
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Story"
@@ -1482,7 +1270,7 @@ Object {
                 />
               </span>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Medium"
@@ -1511,7 +1299,7 @@ Object {
                 </span>
               </button>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Fabian Schultz"
@@ -1540,6 +1328,12 @@ Object {
         </div>
       </div>
     </div>
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
   </body>,
   "container": <div>
     <div>
@@ -1562,6 +1356,7 @@ Object {
             <div
               class="Dropdown__Dropdown___nAsJ-"
               data-test-id="cf-ui-card-actions"
+              position="bottom-right"
             >
               <button
                 aria-expanded="false"
@@ -1577,9 +1372,10 @@ Object {
                   <svg
                     class="Icon__Icon___38Epv Icon__Icon--small___1yGZK undefined IconButton__IconButton__icon___3yZQN"
                     data-test-id="cf-ui-icon"
-                    height="1em"
+                    height="18"
                     viewBox="0 0 24 24"
-                    width="1em"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h24v24H0z"
@@ -1622,7 +1418,7 @@ Object {
             class="status"
           >
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Task"
@@ -1631,7 +1427,7 @@ Object {
               />
             </span>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Medium"
@@ -1660,7 +1456,7 @@ Object {
               </span>
             </button>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Dean Anderson"
@@ -1692,6 +1488,7 @@ Object {
             <div
               class="Dropdown__Dropdown___nAsJ-"
               data-test-id="cf-ui-card-actions"
+              position="bottom-right"
             >
               <button
                 aria-expanded="false"
@@ -1707,9 +1504,10 @@ Object {
                   <svg
                     class="Icon__Icon___38Epv Icon__Icon--small___1yGZK undefined IconButton__IconButton__icon___3yZQN"
                     data-test-id="cf-ui-icon"
-                    height="1em"
+                    height="18"
                     viewBox="0 0 24 24"
-                    width="1em"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h24v24H0z"
@@ -1752,7 +1550,7 @@ Object {
             class="status"
           >
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Story"
@@ -1761,7 +1559,7 @@ Object {
               />
             </span>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Medium"
@@ -1790,7 +1588,7 @@ Object {
               </span>
             </button>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Fabian Schultz"
@@ -1904,15 +1702,12 @@ Object {
             />
           </div>
           <div
-            aria-pressed="false"
             class="Card__Card___1_26G search-card Card__Card--padding-none___1_Xu1 Card__Card--is-interactive___3nFqr"
             data-test-id="search-result-issue"
-            role="button"
-            tabindex="0"
           >
             <div>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Story"
@@ -1928,6 +1723,7 @@ Object {
         </div>
       </div>
     </div>
+    <div />
   </body>,
   "container": <div>
     <div>
@@ -1956,15 +1752,12 @@ Object {
           />
         </div>
         <div
-          aria-pressed="false"
           class="Card__Card___1_26G search-card Card__Card--padding-none___1_Xu1 Card__Card--is-interactive___3nFqr"
           data-test-id="search-result-issue"
-          role="button"
-          tabindex="0"
         >
           <div>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Story"
@@ -2059,6 +1852,7 @@ Object {
               <div
                 class="Dropdown__Dropdown___nAsJ-"
                 data-test-id="cf-ui-card-actions"
+                position="bottom-right"
               >
                 <button
                   aria-expanded="false"
@@ -2074,9 +1868,10 @@ Object {
                     <svg
                       class="Icon__Icon___38Epv Icon__Icon--small___1yGZK undefined IconButton__IconButton__icon___3yZQN"
                       data-test-id="cf-ui-icon"
-                      height="1em"
+                      height="18"
                       viewBox="0 0 24 24"
-                      width="1em"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         d="M0 0h24v24H0z"
@@ -2119,7 +1914,7 @@ Object {
               class="status"
             >
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Story"
@@ -2128,7 +1923,7 @@ Object {
                 />
               </span>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Medium"
@@ -2157,7 +1952,7 @@ Object {
                 </span>
               </button>
               <span
-                class="Tooltip__TooltipContainer___3YlPf"
+                class="Tooltip__Tooltip__target-wrapper___Mtw42"
               >
                 <img
                   alt="Dean Anderson"
@@ -2186,6 +1981,9 @@ Object {
         </div>
       </div>
     </div>
+    <div />
+    <div />
+    <div />
   </body>,
   "container": <div>
     <div>
@@ -2208,6 +2006,7 @@ Object {
             <div
               class="Dropdown__Dropdown___nAsJ-"
               data-test-id="cf-ui-card-actions"
+              position="bottom-right"
             >
               <button
                 aria-expanded="false"
@@ -2223,9 +2022,10 @@ Object {
                   <svg
                     class="Icon__Icon___38Epv Icon__Icon--small___1yGZK undefined IconButton__IconButton__icon___3yZQN"
                     data-test-id="cf-ui-icon"
-                    height="1em"
+                    height="18"
                     viewBox="0 0 24 24"
-                    width="1em"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       d="M0 0h24v24H0z"
@@ -2268,7 +2068,7 @@ Object {
             class="status"
           >
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Story"
@@ -2277,7 +2077,7 @@ Object {
               />
             </span>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Medium"
@@ -2306,7 +2106,7 @@ Object {
               </span>
             </button>
             <span
-              class="Tooltip__TooltipContainer___3YlPf"
+              class="Tooltip__Tooltip__target-wrapper___Mtw42"
             >
               <img
                 alt="Dean Anderson"
@@ -2519,32 +2319,29 @@ Object {
           class="Note__Note__icon___20RqC"
         >
           <svg
-            class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--negative___1dled"
+            class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--negative___1dled"
             data-test-id="cf-ui-icon"
-            height="1em"
+            height="18"
             viewBox="0 0 24 24"
-            width="1em"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M0 0h24v24H0z"
               fill="none"
             />
             <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+              d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
             />
           </svg>
         </div>
-        <div
-          class="Note__Note__info___2m_-K"
-        >
+        <div>
           <div
             class="Note__Note__title___2nwpx"
           >
             Unauthorized
           </div>
-          <div
-            class="Note__Note__content___H1pf-"
-          >
+          <div>
             Your Jira account does not have permission to view the issues in this project.
              
             <button
@@ -2573,32 +2370,29 @@ Object {
         class="Note__Note__icon___20RqC"
       >
         <svg
-          class="Icon__Icon___38Epv Icon__Icon--medium___3Pezi Icon__Icon--negative___1dled"
+          class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--negative___1dled"
           data-test-id="cf-ui-icon"
-          height="1em"
+          height="18"
           viewBox="0 0 24 24"
-          width="1em"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M0 0h24v24H0z"
             fill="none"
           />
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
           />
         </svg>
       </div>
-      <div
-        class="Note__Note__info___2m_-K"
-      >
+      <div>
         <div
           class="Note__Note__title___2nwpx"
         >
           Unauthorized
         </div>
-        <div
-          class="Note__Note__content___H1pf-"
-        >
+        <div>
           Your Jira account does not have permission to view the issues in this project.
            
           <button
